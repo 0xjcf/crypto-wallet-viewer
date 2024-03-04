@@ -1,0 +1,26 @@
+crypto-wallet-viewer/
+│
+├── src/
+│   ├── models/
+│   │   └── User.ts
+│   │
+│   ├── routes/
+│   │   ├── authRoutes.ts
+│   │   └── walletRoutes.ts
+│   │
+│   ├── config/
+│   │   └── passportConfig.ts
+│   │
+│   ├── utils/
+│   │   └── fetchWalletData.ts
+│   │
+│   └── server.ts
+│
+├── views/
+│   └── (Optional frontend files, if served directly by Express)
+│
+├── .env (For storing sensitive configurations like DB_URI)
+│
+├── package.json
+│
+└── tsconfig.json
