@@ -6,9 +6,9 @@ Welcome to our tutorial, where we're building an application that lets users log
 
 Each lesson in this tutorial is contained within its own branch, structured to guide you through the development process step by step. To follow along, please switch to the relevant lesson branch:
 
-- `lesson-1`: Setting up the Project Environment
-- `lesson-2`: User Authentication with Passport.js
-- `lesson-3`: User Session Management
+- `lesson-1`: Basic Express Server Setup with TypeScript
+- `lesson-2`: Integrating MongoDB with Mongoose
+- `lesson-3`: Setting Up Passport.js for User Authentication
 - `lesson-4`: Integrating Bitcoin Wallet Functionality
 - Further lessons will be added in subsequent branches.
 
