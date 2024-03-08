@@ -10,6 +10,7 @@ Each lesson in this tutorial is contained within its own branch, structured to g
 - `lesson-2`: Integrating MongoDB with Mongoose
 - `lesson-3`: Setting Up Passport.js for User Authentication
 - `lesson-4`: Integrating Bitcoin Wallet Functionality
+- `lesson-5`: Integrating Ethereum Wallet Functionality
 - Further lessons will be added in subsequent branches.
 
 Please check out each branch for detailed instructions and implementations specific to that part of the tutorial.
