@@ -1,12 +1,14 @@
-import express from "express";
+import express, { Request } from "express";
 import passport from "passport";
 import bcrypt from "bcrypt";
 import User from "../models/User";
 
 const router = express.Router();
 
+type RegisterRequest = Request<{}, {}, { username: string; password: string }>;
+
 // Route for user registration
-router.post("/register", async (request, response) => {
+router.post("/register", async (request: RegisterRequest, response) => {
   const { username, password } = request.body;
 
   // Check if username and password are provided
@@ -35,16 +37,15 @@ router.post(
   "/login",
   passport.authenticate("local", {
     successRedirect: "/dashboard", // Redirect to dashboard if login is successful
-    failureRedirect: "/login", // Redirect to login page if login fails
+    failureRedirect: "/", // Redirect to login screen if login fails
   })
 );
 
 // Route for user logout
 router.get("/logout", (request, response) => {
-  request.logOut((error) => {
-    if (error) {
-      console.error("Logout failed due to error:", error);
-    }
+  request.logOut((error: Error) => {
+    if (error)
+      return response.status(500).json({ message: "Error logging out" });
   }); // Passport logout method
   response.redirect("/"); // Redirect to home page after logout
 });
