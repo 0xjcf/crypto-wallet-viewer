@@ -4,9 +4,9 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import passport from "passport";
 import configurePassport from "./config/passportConfig";
-import authRoutes from "./routes/authRoutes";
-import walletRoutes from "./routes/walletRoutes";
-import dashboardRoutes from "./routes/dashboardRoutes";
+import authRoutes from "./controllers/authController";
+import walletRoutes from "./controllers/walletController";
+import dashboardRoutes from "./controllers/dashboardController";
 
 dotenv.config();
 
@@ -15,7 +15,7 @@ dotenv.config();
 mongoose
   .connect(process.env.MONGODB_URI as string)
   .then(() => console.log("Connected to MongoDB\n"))
-  .catch((err) => console.log("MongoDB connection error", err));
+  .catch((err) => console.log("MongoDB connection error\n", err));
 
 // Create Express server
 

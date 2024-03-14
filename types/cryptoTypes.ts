@@ -1,5 +1,9 @@
 export type CryptoType = "bitcoin";
-export type DashboardData = Record<CryptoType, { balance: number }>;
+
+export type CryptoData = { balance?: number; error?: string };
+
+export type DashboardData = Record<CryptoType, CryptoData>;
+
 export type BitcoinBalanceResponse = {
   address: string;
   total_received: number;

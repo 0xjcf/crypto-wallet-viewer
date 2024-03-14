@@ -1,20 +1,45 @@
-crypto-wallet-viewer/
+crypto-portfolio-tracker/
 │
 ├── src/
+│   ├── controllers/
+│   │   ├── authController.ts
+│   │   ├── dashboardController.ts
+│   │   └── walletController.ts
+│   │
 │   ├── models/
 │   │   └── User.ts
-│   │
-│   ├── routes/
-│   │   ├── authRoutes.ts
-│   │   └── walletRoutes.ts
 │   │
 │   ├── config/
 │   │   └── passportConfig.ts
 │   │
 │   ├── utils/
+│   │   ├── fetchBalanceFunctions.ts
 │   │   └── fetchWalletData.ts
 │   │
+│   ├── tests/
+│   │   ├── controllers/
+│   │   │   ├── authController.test.ts
+│   │   │   ├── dashboardController.test.ts
+│   │   │   └── walletController.test.ts
+│   │   │
+│   │   ├── models/
+│   │   │   └── User.test.ts
+│   │   │
+│   │   └── utils/
+│   │       └── fetchWalletData.test.ts
+│   │
+│   ├── mocks/
+│   │   └── axiosMock.ts
+│   │   ├── passportMock.test.ts
+│   │   └── web3Mock.test.ts
+│   │
 │   └── server.ts
+│
+├── types/
+│   ├── cryptoTypes.ts
+│   └── express.d.ts
+│
+├── dist/  (Distribution files)
 │
 ├── views/
 │   └── (Optional frontend files, if served directly by Express)
@@ -23,4 +48,14 @@ crypto-wallet-viewer/
 │
 ├── package.json
 │
-└── tsconfig.json
+├── tsconfig.json
+│
+├── jest.config.js
+│
+├── globalSetup.ts
+│
+├── globalTeardown.ts
+│
+├── setupFile.ts
+│
+└── .gitignore

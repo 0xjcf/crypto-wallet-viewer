@@ -12,8 +12,8 @@ router.post("/:cryptocurrency", async (request, response) => {
 
   const { cryptocurrency } = request.params;
   const { address } = request.body;
-  const fetchBalance =
-    fetchBalanceFunctions[cryptocurrency as keyof typeof fetchBalanceFunctions];
+  type keyOfFunctions = keyof typeof fetchBalanceFunctions;
+  const fetchBalance = fetchBalanceFunctions[cryptocurrency as keyOfFunctions];
 
   if (!fetchBalance) {
     return response
@@ -55,7 +55,10 @@ router.put("/:cryptocurrency", async (request, response) => {
       { [`${cryptocurrency}Address`]: address },
       { new: true }
     );
-    return response.json({ message: "Address updated", user: updatedUser });
+    return response.json({
+      message: "Address updated successfully",
+      user: updatedUser,
+    });
   } catch (error) {
     return response
       .status(500)

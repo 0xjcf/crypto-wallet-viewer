@@ -27,7 +27,10 @@ router.post("/register", async (request: RegisterRequest, response) => {
       .status(201)
       .json({ message: "User created successfully", user: newUser });
   } catch (error) {
-    return response.status(500).json({ message: "Error creating user", error });
+    return response.status(500).json({
+      message: "Error creating user",
+      error: "User creation failed",
+    });
   }
 });
 
@@ -36,8 +39,8 @@ router.post("/register", async (request: RegisterRequest, response) => {
 router.post(
   "/login",
   passport.authenticate("local", {
-    successRedirect: "/dashboard", // Redirect to dashboard if login is successful
-    failureRedirect: "/", // Redirect to login screen if login fails
+    successRedirect: "/dashboard",
+    failureRedirect: "/",
   })
 );
 
@@ -46,7 +49,7 @@ router.get("/logout", (request, response) => {
   request.logOut((error: Error) => {
     if (error)
       return response.status(500).json({ message: "Error logging out" });
-  }); // Passport logout method
+  });
   response.redirect("/"); // Redirect to home page after logout
 });
 

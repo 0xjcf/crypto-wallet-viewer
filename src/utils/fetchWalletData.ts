@@ -16,10 +16,14 @@ export async function fetchBitcoinBalance(address: string) {
   }
 }
 
+export function getWeb3ProviderUrl() {
+  return process.env.INFURA_API_KEY
+    ? `https://sepola.infura.io/v3/${process.env.INFURA_API_KEY}`
+    : "http://localhost:8545";
+}
+
 const provider = `https://sepolia.infura.io/v3/${process.env.INFURA_API_KEY}`; //! just for testing purposes
-const web3Provider = new Web3.providers.HttpProvider(
-  provider || "ws://localhost:8545"
-);
+const web3Provider = new Web3.providers.HttpProvider(getWeb3ProviderUrl());
 const web3 = new Web3(web3Provider);
 
 export async function fetchEthereumBalance(address: string) {
