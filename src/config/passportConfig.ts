@@ -6,7 +6,7 @@ import User from "../models/User";
 // Use the LocalStrategy within Passport.
 // Strategies in passport require a `verify` function, which accept credentials,
 // and invoke a callback with a user object.
-const verify: VerifyFunction = async (username, password, done) => {
+export const verify: VerifyFunction = async (username, password, done) => {
   // Match user based on username
   try {
     const user = await User.findOne({ username });
